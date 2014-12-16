@@ -1,1 +1,1 @@
-git+https://github.com/mstg/downstream-farmer.git
+git+https://github.com/storj/downstream-farmer.git
