@@ -33,7 +33,7 @@ from kivy.uix.popup import Popup
 from kivy.properties import StringProperty, ListProperty, ObjectProperty, NumericProperty
 from kivy.factory import Factory
 
-import webbrowser, os, time, threading, json, math
+import webbrowser, os, time, threading, json, math, codecs
 from hashlib import sha256
 from downstream_farmer import shell
 from downstream_farmer.shell import parse_args, eval_args
@@ -148,7 +148,7 @@ class DriveShareApp(App):
 		n = 0
 		for char in bc:
 			n = n * 58 + self.digits58.index(char)
-		return ('%%0%dx' % (length << 1) % n).decode('hex')[-length:]
+		return codecs.decode(('%%0%dx' % (length << 1) % n), "hex_codec")[-length:]
 
 	"""
 	Check if specified SJCX/Bitcoin address is valid
